@@ -78,6 +78,7 @@ public class TimerProcessor implements Runnable {
 			
 			//Check the stack for messages..
 			synchronized (mMessagesLock) {
+				
 				//New list to store the ongoing timers
 				ArrayList<TimerMessage> newlist = new ArrayList<TimerMessage>();
 				
