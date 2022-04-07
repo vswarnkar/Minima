@@ -34,10 +34,10 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build And Test
-        if: false
         run: gradle clean build
-      #- name: Publish to GitHub Packages
-       # run: gradle publish
-        #env:
-         # USERNAME: ${{ github.actor }}
-          #TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to GitHub Packages
+        if : ${{contains(github.ref, 'master') }}
+        run: gradle publish
+        env:
+          USERNAME: ${{ github.actor }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
