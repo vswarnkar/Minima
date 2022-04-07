@@ -11,8 +11,8 @@ on:
     inputs:
       manualPublish:
         description: Run Job Manually
-        required: false
-        default: false
+        required: true
+        default: true
 
 #permissions:
   #contents: read
