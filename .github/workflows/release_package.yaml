@@ -27,7 +27,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build And Test
-        if: ${{contains(github.ref, 'master'}}
+        if: ${{false}
         run: gradle clean build
       #- name: Publish to GitHub Packages
        # run: gradle publish
