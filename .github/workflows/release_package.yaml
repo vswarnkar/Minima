@@ -7,10 +7,11 @@ on:
     branches: [ dev, master ]
   release:
     types: [created]
-  inputs:
-    description: Run Job Manually
-    required: false
-    default: false
+  workflow_dispatch:
+    inputs:
+      description: Run Job Manually
+      required: false
+      default: false
 
 #permissions:
   #contents: read
