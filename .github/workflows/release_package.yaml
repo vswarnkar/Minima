@@ -26,7 +26,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build And Test
-        if: {{startsWith(GITHUB_HEAD_REF, 'feature'}}
+        if: ${{startsWith(GITHUB_HEAD_REF, 'feature'}}
         run: gradle clean build
       #- name: Publish to GitHub Packages
        # run: gradle publish
