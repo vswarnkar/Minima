@@ -29,7 +29,8 @@ jobs:
           distribution: 'adopt'
       - name: Build And Test
         uses: ./gradle
-        run: ./gradlew clean build
+        with:
+          gradlew clean build
       - name: Publish to GitHub Packages
         if : ${{contains(github.ref, 'master') }}
         run: gradle publish
