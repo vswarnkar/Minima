@@ -2,7 +2,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ master, dev*, feature*, bugfix* ]
+    branches: [ dev, feature/* ]
   pull_request:
     branches: [ dev, master ]
   release:
@@ -28,6 +28,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build And Test
+        uses: ./gradle
         run: ./gradlew clean build
       - name: Publish to GitHub Packages
         if : ${{contains(github.ref, 'master') }}
