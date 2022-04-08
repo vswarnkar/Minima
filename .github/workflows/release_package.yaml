@@ -12,7 +12,7 @@ on:
       environment:
         description: Publish artififact
         type: string
-        default: false
+        default: TEST
         required: true
 
 permissions:
