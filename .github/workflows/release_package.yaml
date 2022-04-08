@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - run: echo ${{github.ref}}
-     - run: echo ${{github.event.inputs.environment == 'PROD'}}
+      - run: echo ${{github.event.inputs.environment == 'PROD'}}
       - run: echo ${{contains(github.ref, 'feature') }}
       - uses: actions/checkout@v3
       - name: Set up JDK 11
