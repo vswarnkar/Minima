@@ -34,7 +34,6 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build And Test
-        working-directory: ./gradle
         run: ./gradlew clean build
       - name: Publish to GitHub Packages
         if : ${{contains(github.ref, 'master') }}
