@@ -2,9 +2,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ dev, feature/* ]
-  pull_request:
-    branches: [ dev, master ]
+    branches: [ master, dev*, feature*, bugfix* ]
+  #pull_request:
+    #branches: [ dev, master ]
   release:
     types: [created]
   workflow_dispatch:
@@ -34,7 +34,8 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build And Test
-        run: gradle clean build
+        working-directory: ./gradle
+        run: ./gradlew clean build
       - name: Publish to GitHub Packages
         if : ${{contains(github.ref, 'master') }}
         run: gradle publish
