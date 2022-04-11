@@ -4,6 +4,7 @@ on:
     inputs:
       publish_artifacts:
         description: Publish artifact
+        type: boolean
         default: false
         required: true
       artifacts_version:
