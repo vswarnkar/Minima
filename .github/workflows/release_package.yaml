@@ -2,18 +2,11 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ dev, feature/* ]
+    branches: [ master, dev, feature** ]
   pull_request:
     branches: [ dev, master ]
   release:
     types: [created]
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: Publish artififact
-        type: string
-        default: TEST
-        required: true
 
 permissions:
   contents: read
