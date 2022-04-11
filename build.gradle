@@ -116,7 +116,9 @@ publishing {
         maven {
             name = "GitHubPackages"
             url = "https://maven.pkg.github.com/minima-global/Minima"
-            version = System.getenv("VERSION")
+            if (System.getenv("VERSION") != '') {
+                version = System.getenv("VERSION")
+            }
             credentials {
                 username = System.getenv("USERNAME")
                 password = System.getenv("TOKEN")

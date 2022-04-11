@@ -30,7 +30,7 @@ jobs:
      - name: Build And Test
        run: ./gradlew clean build
        working-directory: ./
-     - name: Publish to GitHub Packages
+     - name: Publish Artifact
        if: ${{ github.event.inputs.publish_artifacts == 'true'}}
        run: ./gradlew publish
        working-directory: ./
