@@ -36,14 +36,14 @@ public class TimerProcessor implements Runnable {
 	 * Synchronization lock for mTimerMessages
 	 */
 	private Object mMessagesLock;
-	
+
 	private TimerProcessor() {
 		mRunning 		= true;
 		mTimerMessages 	= new ArrayList<TimerMessage>();
 		mMessagesLock	= new Object();
-		
+
 		mMessagesLock = new Object();
-		
+
 		mMainThread = new Thread(this);
 		mMainThread.start();
 	}
@@ -61,7 +61,7 @@ public class TimerProcessor implements Runnable {
 			}else {
 				//Intermittent Bug..
 				MinimaLogger.log("NULL TIMER Message attempt:");
-				
+
 				//Print Stack Strace
 				Throwable tt = new Throwable();
 				for(StackTraceElement stack : tt.getStackTrace()) {
@@ -78,7 +78,6 @@ public class TimerProcessor implements Runnable {
 			
 			//Check the stack for messages..
 			synchronized (mMessagesLock) {
-				
 				//New list to store the ongoing timers
 				ArrayList<TimerMessage> newlist = new ArrayList<TimerMessage>();
 				
@@ -87,13 +86,13 @@ public class TimerProcessor implements Runnable {
 				
 				//Cycle through all the timers
 				for(TimerMessage tm : mTimerMessages) {
-					
+
 					//Check for null... strange internittent BUG..
 					if(tm == null) {
 						MinimaLogger.log("Timer Message is NULL.. ?");
 						continue;
 					}
-					
+
 					//Get the time..
 					if(tm.getTimer()<time) {
 						//Who get's it
